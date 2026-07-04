@@ -30,7 +30,7 @@ export const Terms: React.FC = () => {
             
             <h2 className="text-xl font-bold font-serif text-[var(--color-text-primary)] mt-12 mb-6">2. 著作権等について</h2>
             <p className="mb-8">
-              当サイトに掲載されているテキスト、画像、その他のコンテンツ（Unsplash等から引用している素材を含む）に関する著作権その他の権利は、当方または正当な権利を有する第三者に帰属します。無断での転載、複製、改変等を禁じます。
+              当サイトに掲載されているテキスト、画像、その他のコンテンツに関する著作権その他の権利は、当方または正当な権利を有する第三者に帰属します。無断での転載、複製、改変等を禁じます。
             </p>
 
             <h2 className="text-xl font-bold font-serif text-[var(--color-text-primary)] mt-12 mb-6">3. 免責事項</h2>

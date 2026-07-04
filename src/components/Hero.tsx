@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { siteData } from '../config/siteData';
+import stageHero from '../assets/stage-hero-1440.webp';
 
 export const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -46,7 +47,7 @@ export const Hero: React.FC = () => {
         <div 
           className="absolute inset-0 transition-transform duration-[10s] hover:scale-105" 
           style={{ 
-            backgroundImage: 'url("https://images.unsplash.com/photo-1492571350019-22de08371fd3?q=80&w=2070&auto=format&fit=crop")',
+            backgroundImage: `url(${stageHero})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }} 

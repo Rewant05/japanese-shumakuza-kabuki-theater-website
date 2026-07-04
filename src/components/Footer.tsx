@@ -8,7 +8,6 @@ export const Footer: React.FC = () => {
     <footer className="bg-[var(--color-bg-secondary)] border-t border-[rgba(0,0,0,0.05)] pt-24 pb-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-          
           <div className="md:col-span-5">
             <Link to="/" className="inline-flex items-center gap-4 mb-6 group">
               <div className="w-10 h-10 flex items-center justify-center font-serif text-xl border-2 border-[var(--color-text-primary)] text-[var(--color-text-primary)] group-hover:bg-[var(--color-accent-red)] group-hover:text-white group-hover:border-[var(--color-accent-red)] transition-all duration-300">
@@ -22,10 +21,10 @@ export const Footer: React.FC = () => {
               {siteData.description}
             </p>
             <div className="flex gap-4">
-              <a href={siteData.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-[var(--color-text-tertiary)] rounded-full text-[var(--color-text-primary)] hover:bg-[var(--color-accent-red)] hover:text-white hover:border-[var(--color-accent-red)] transition-colors">
+              <a href={siteData.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 flex items-center justify-center border border-[var(--color-text-tertiary)] rounded-full text-[var(--color-text-primary)] hover:bg-[var(--color-accent-red)] hover:text-white hover:border-[var(--color-accent-red)] transition-colors">
                 <Camera size={18} />
               </a>
-              <a href={`mailto:${siteData.email}`} className="w-10 h-10 flex items-center justify-center border border-[var(--color-text-tertiary)] rounded-full text-[var(--color-text-primary)] hover:bg-[var(--color-accent-red)] hover:text-white hover:border-[var(--color-accent-red)] transition-colors">
+              <a href={`mailto:${siteData.email}`} aria-label="Email" className="w-10 h-10 flex items-center justify-center border border-[var(--color-text-tertiary)] rounded-full text-[var(--color-text-primary)] hover:bg-[var(--color-accent-red)] hover:text-white hover:border-[var(--color-accent-red)] transition-colors">
                 <Mail size={18} />
               </a>
             </div>
@@ -60,7 +59,6 @@ export const Footer: React.FC = () => {
               </p>
             </div>
           </div>
-          
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[rgba(0,0,0,0.05)] gap-4">

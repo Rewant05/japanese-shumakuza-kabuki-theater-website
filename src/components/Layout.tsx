@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { TheaterNavbar } from './TheaterNavbar';
-import { Footer } from './Footer';
+
+const Footer = lazy(() => import('./Footer').then((module) => ({ default: module.Footer })));
 
 export const Layout: React.FC = () => {
   const { pathname } = useLocation();
@@ -17,7 +18,9 @@ export const Layout: React.FC = () => {
       <main className="flex-grow">
         <Outlet />
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };
