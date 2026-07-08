@@ -12,7 +12,7 @@ export const Contact: React.FC = () => {
       <div className="container max-w-5xl">
         <div className="text-center mb-24">
           <span className="text-[var(--color-accent-red)] tracking-[0.2em] text-xs uppercase font-bold mb-6 block">
-            Contact Us
+            お問い合わせ
           </span>
           <h1 className="title-large text-[var(--color-text-primary)] mb-8">
             お問い合わせ
@@ -37,7 +37,7 @@ export const Contact: React.FC = () => {
                     <MapPin size={20} />
                   </div>
                   <div>
-                    <h3 className="font-sans text-xs tracking-[0.2em] uppercase font-bold text-[var(--color-text-primary)] mb-2">Address</h3>
+                    <h3 className="font-sans text-xs tracking-[0.2em] uppercase font-bold text-[var(--color-text-primary)] mb-2">所在地</h3>
                     <p className="text-subtle font-serif leading-relaxed text-[15px]">{siteData.address}</p>
                   </div>
                 </div>
@@ -47,7 +47,7 @@ export const Contact: React.FC = () => {
                     <Clock size={20} />
                   </div>
                   <div>
-                    <h3 className="font-sans text-xs tracking-[0.2em] uppercase font-bold text-[var(--color-text-primary)] mb-2">Business Hours</h3>
+                    <h3 className="font-sans text-xs tracking-[0.2em] uppercase font-bold text-[var(--color-text-primary)] mb-2">営業時間</h3>
                     <p className="text-subtle font-serif leading-relaxed text-[15px]">{siteData.businessHours}</p>
                   </div>
                 </div>
@@ -57,7 +57,7 @@ export const Contact: React.FC = () => {
                     <Mail size={20} />
                   </div>
                   <div>
-                    <h3 className="font-sans text-xs tracking-[0.2em] uppercase font-bold text-[var(--color-text-primary)] mb-2">Email</h3>
+                    <h3 className="font-sans text-xs tracking-[0.2em] uppercase font-bold text-[var(--color-text-primary)] mb-2">メール</h3>
                     <a href={`mailto:${siteData.email}`} className="text-[var(--color-accent-red)] font-serif leading-relaxed text-[15px] hover:underline">
                       {siteData.email}
                     </a>
@@ -94,7 +94,7 @@ export const Contact: React.FC = () => {
                     type="email"
                     id="email"
                     className="w-full bg-[var(--color-bg-primary)] border border-[rgba(0,0,0,0.1)] rounded p-4 text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-accent-red)] transition-colors"
-                    placeholder="your@email.com"
+                    placeholder="taro@example.jp"
                   />
                 </div>
 

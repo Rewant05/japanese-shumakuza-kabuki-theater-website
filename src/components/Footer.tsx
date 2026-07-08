@@ -21,10 +21,10 @@ export const Footer: React.FC = () => {
               {siteData.description}
             </p>
             <div className="flex gap-4">
-              <a href={siteData.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 flex items-center justify-center border border-[var(--color-text-tertiary)] rounded-full text-[var(--color-text-primary)] hover:bg-[var(--color-accent-red)] hover:text-white hover:border-[var(--color-accent-red)] transition-colors">
+              <a href={siteData.instagram} target="_blank" rel="noopener noreferrer" aria-label="インスタグラム" className="w-10 h-10 flex items-center justify-center border border-[var(--color-text-tertiary)] rounded-full text-[var(--color-text-primary)] hover:bg-[var(--color-accent-red)] hover:text-white hover:border-[var(--color-accent-red)] transition-colors">
                 <Camera size={18} />
               </a>
-              <a href={`mailto:${siteData.email}`} aria-label="Email" className="w-10 h-10 flex items-center justify-center border border-[var(--color-text-tertiary)] rounded-full text-[var(--color-text-primary)] hover:bg-[var(--color-accent-red)] hover:text-white hover:border-[var(--color-accent-red)] transition-colors">
+              <a href={`mailto:${siteData.email}`} aria-label="メール" className="w-10 h-10 flex items-center justify-center border border-[var(--color-text-tertiary)] rounded-full text-[var(--color-text-primary)] hover:bg-[var(--color-accent-red)] hover:text-white hover:border-[var(--color-accent-red)] transition-colors">
                 <Mail size={18} />
               </a>
             </div>
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
 
           <div className="md:col-span-3">
             <h4 className="font-sans text-xs tracking-[0.2em] uppercase font-bold text-[var(--color-text-primary)] mb-6 border-b border-[rgba(0,0,0,0.05)] pb-4">
-              Explore
+              案内
             </h4>
             <ul className="space-y-4">
               {siteData.footerLinks.slice(0, 4).map((link) => (
@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
 
           <div className="md:col-span-4">
             <h4 className="font-sans text-xs tracking-[0.2em] uppercase font-bold text-[var(--color-text-primary)] mb-6 border-b border-[rgba(0,0,0,0.05)] pb-4">
-              Visit Us
+              所在地
             </h4>
             <div className="space-y-4 text-subtle text-sm leading-loose">
               <p className="flex items-start gap-3">
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
                 <span>{siteData.address}</span>
               </p>
               <p className="pl-7">
-                営業時間: {siteData.businessHours}
+                営業時間：{siteData.businessHours}
               </p>
             </div>
           </div>
@@ -63,14 +63,14 @@ export const Footer: React.FC = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-[rgba(0,0,0,0.05)] gap-4">
           <p className="text-[10px] text-[var(--color-text-tertiary)] uppercase tracking-[0.1em]">
-            &copy; {new Date().getFullYear()} {siteData.romanizedName}. All Rights Reserved.
+            &copy; {new Date().getFullYear()} {siteData.name}. 無断転載を禁じます。
           </p>
           <div className="flex gap-6">
             <Link to="/privacy-policy" className="text-[10px] text-[var(--color-text-tertiary)] uppercase tracking-[0.1em] hover:text-[var(--color-accent-red)] transition-colors">
-              Privacy Policy
+              プライバシーポリシー
             </Link>
             <Link to="/terms" className="text-[10px] text-[var(--color-text-tertiary)] uppercase tracking-[0.1em] hover:text-[var(--color-accent-red)] transition-colors">
-              Terms of Service
+              利用規約
             </Link>
           </div>
         </div>

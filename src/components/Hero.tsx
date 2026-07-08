@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
         <div ref={textRef} className="max-w-2xl text-left">
           
           <span className="text-[var(--color-accent-red)] tracking-[0.3em] text-xs font-bold uppercase mb-8 block opacity-0">
-            {siteData.name} — Japanese Traditional Arts
+            {siteData.name} 伝統芸能案内
           </span>
           
           <h1 className="title-xl opacity-0 text-[var(--color-text-primary)]">

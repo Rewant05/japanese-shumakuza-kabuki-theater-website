@@ -1,6 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ArrowDown from 'lucide-react/dist/esm/icons/arrow-down.mjs';
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right.mjs';
 import Info from 'lucide-react/dist/esm/icons/info.mjs';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin.mjs';
@@ -30,33 +29,6 @@ export const Home: React.FC = () => {
   const beginnerPreview = siteData.beginnerGuide.slice(0, 4);
   const performanceImages = [stageHero, stageClimax, stageFarewell];
 
-  const chapters = useMemo(
-    () => [
-      {
-        label: 'Act 01',
-        title: 'Welcome to the stage',
-        text: 'The house lights fall, the curtain breathes, and the first note invites you closer.',
-      },
-      {
-        label: 'Act 02',
-        title: 'The story gathers heat',
-        text: 'Scroll deeper and the hanamichi, lights, and stage rhythm begin to pull the scene forward.',
-      },
-      {
-        label: 'Climax',
-        title: 'The mie holds the room',
-        text: 'Costume, spotlight, and motion peak together for the dramatic theatre moment.',
-      },
-      {
-        label: 'Curtain call',
-        title: 'Carry the afterglow home',
-        text: 'The stage softens into the lobby, leaving one last warm note before you go.',
-      },
-    ],
-    [],
-  );
-
-  const activeChapter = sceneProgress < 0.25 ? 0 : sceneProgress < 0.52 ? 1 : sceneProgress < 0.8 ? 2 : 3;
   const climaxOpacity = range(sceneProgress, 0.44, 0.7) * (1 - range(sceneProgress, 0.82, 0.95));
   const farewellOpacity = range(sceneProgress, 0.78, 0.96);
   const introFade = 1 - range(sceneProgress, 0.18, 0.46);
@@ -209,13 +181,13 @@ export const Home: React.FC = () => {
                 pointerEvents: introFade < 0.08 ? 'none' : 'auto',
               }}
             >
-              <span className="stage-kicker stage-copy-animate">{siteData.romanizedName} Theatre Guide</span>
+              <span className="stage-kicker stage-copy-animate">朱幕座 伝統芸能案内</span>
               <h1 className="stage-title stage-copy-animate">
                 幕の向こうに
                 <span>物語が灯る</span>
               </h1>
               <p className="stage-lede stage-copy-animate">
-                Scroll through a living theatre: the curtain opens, the story rises, the climax blooms, and the lobby waits with a quiet farewell.
+                幕が開き、物語が高まり、舞台の熱が静かな余韻へ移ろうまで。劇場を歩くように、日本の伝統芸能の世界をご案内します。
               </p>
               <div className="stage-actions stage-copy-animate">
                 <Link to="/performances" className="stage-button">
@@ -224,39 +196,18 @@ export const Home: React.FC = () => {
                 </Link>
                 <Link to="/beginner-guide" className="stage-button-secondary">
                   はじめての歌舞伎
-                  <ArrowDown size={17} aria-hidden="true" />
+                  <ArrowRight size={17} aria-hidden="true" />
                 </Link>
               </div>
             </div>
 
-            <aside className="stage-status stage-copy-animate" aria-label="Scroll scene status">
-              <div className="stage-status__label">
-                <span>Scroll Performance</span>
-                <span>{Math.round(sceneProgress * 100)}%</span>
-              </div>
-              <div className="stage-status__track">
-                <div className="stage-status__bar" />
-              </div>
-              <div className="stage-status__chapter">{chapters[activeChapter].title}</div>
-              <p className="stage-status__hint">{chapters[activeChapter].text}</p>
-            </aside>
-          </div>
-
-          <div className="scroll-chapters" aria-hidden="true">
-            {chapters.map((chapter, index) => (
-              <div key={chapter.label} className={clsx('scroll-chapter', activeChapter === index && 'is-active')}>
-                <span>{chapter.label}</span>
-                <strong>{chapter.title}</strong>
-                <p>{chapter.text}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
       <div className={clsx('farewell-note', showFarewell && 'is-visible')} role="status" aria-live="polite">
         <span>お帰りの前に</span>
-        <strong>Hope you enjoyed the theatre.</strong>
+        <strong>ご観劇ありがとうございました。</strong>
       </div>
 
       <section className="home-band home-band--warm section">
@@ -266,19 +217,19 @@ export const Home: React.FC = () => {
               src={stageClimax}
               srcSet={`${stageClimaxMobile} 540w, ${stageClimax} 900w`}
               sizes="(max-width: 768px) 92vw, 38vw"
-              alt="Dramatic kabuki-inspired costume and fan under stage lights"
+              alt="舞台照明を受ける華やかな衣裳と扇"
               loading="lazy"
               decoding="async"
             />
           </div>
           <div className="gsap-rise">
-            <span className="home-section-label">Featured Performances</span>
+            <span className="home-section-label">注目演目</span>
             <h2 className="title-large">注目の舞台</h2>
             <p className="text-subtle text-lg leading-loose mb-8">
               初めてでも入りやすい演目から、舞台全体が熱を帯びる名場面まで。衣裳、音、所作の見どころを短く案内します。
             </p>
             <Link to="/performances" className="btn-primary">
-              <span>View All Performances</span>
+              <span>演目をすべて見る</span>
             </Link>
           </div>
         </div>
@@ -288,11 +239,11 @@ export const Home: React.FC = () => {
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-14 gsap-rise">
             <div>
-              <span className="home-section-label">Repertoire</span>
+              <span className="home-section-label">演目案内</span>
               <h2 className="title-large">物語を選ぶ</h2>
             </div>
             <Link to="/performances" className="group flex items-center gap-3 text-[var(--color-text-primary)] hover:text-[var(--color-accent-red)] transition-colors">
-              <span className="uppercase tracking-[0.18em] text-sm font-bold link-underline">Discover More</span>
+              <span className="uppercase tracking-[0.18em] text-sm font-bold link-underline">詳しく見る</span>
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
           </div>
@@ -302,7 +253,7 @@ export const Home: React.FC = () => {
               <Link to="/performances" key={perf.id} className="glass-card performance-card group block p-0 gsap-rise">
                 <img
                   src={performanceImages[index % performanceImages.length]}
-                  alt={`${perf.title} visual`}
+                  alt={`${perf.title}の舞台写真`}
                   loading="lazy"
                   decoding="async"
                 />
@@ -331,7 +282,7 @@ export const Home: React.FC = () => {
           <div className="max-w-4xl mx-auto text-center gsap-rise">
             <span className="inline-flex items-center gap-2 text-[#ffd98c] font-bold tracking-[0.2em] text-xs uppercase mb-6">
               <Sparkles size={16} aria-hidden="true" />
-              Our Philosophy
+              私たちの想い
             </span>
             <h2 className="title-xl mb-10 text-[#fff8eb]">
               知ることで、舞台はもっと面白くなる。
@@ -346,7 +297,7 @@ export const Home: React.FC = () => {
       <section className="home-band home-band--warm section">
         <div className="container">
           <div className="text-center mb-14 gsap-rise">
-            <span className="home-section-label justify-center">Beginner's Guide</span>
+            <span className="home-section-label justify-center">初心者案内</span>
             <h2 className="title-large">はじめての歌舞伎</h2>
             <p className="text-subtle max-w-2xl mx-auto text-lg leading-relaxed">
               難しそうに見える伝統芸能も、入口を少し知るだけでぐっと近くなります。
@@ -369,7 +320,7 @@ export const Home: React.FC = () => {
 
           <div className="text-center mt-16 gsap-rise">
             <Link to="/beginner-guide" className="btn-primary">
-              <span>Read Full Guide</span>
+              <span>案内を読む</span>
             </Link>
           </div>
         </div>
@@ -378,7 +329,7 @@ export const Home: React.FC = () => {
       <section className="home-band section">
         <div className="container home-grid">
           <div className="gsap-rise">
-            <span className="home-section-label">Curtain Call</span>
+            <span className="home-section-label">終演後の余韻</span>
             <h2 className="title-large">余韻まで劇場です</h2>
             <p className="text-subtle text-lg leading-loose mb-8">
               終演後のロビー、外へ続く灯り、手元に残る筋書。舞台が終わったあとも、物語は静かに続きます。
@@ -399,7 +350,7 @@ export const Home: React.FC = () => {
               src={stageFarewell}
               srcSet={`${stageFarewellMobile} 720w, ${stageFarewell} 1440w`}
               sizes="(max-width: 768px) 92vw, 42vw"
-              alt="Warm theater lobby after a performance"
+              alt="終演後のあたたかな劇場ロビー"
               loading="lazy"
               decoding="async"
             />

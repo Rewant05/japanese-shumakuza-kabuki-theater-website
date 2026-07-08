@@ -40,15 +40,15 @@ export const TheaterNavbar: React.FC = () => {
     <>
       <header className={clsx('theater-nav', (isScrolled || isMobileMenuOpen) && 'is-scrolled', isMobileMenuOpen && 'is-open')}>
         <div className="theater-nav__inner">
-          <Link to="/" className="theater-nav__brand" aria-label={`${siteData.name} home`}>
+          <Link to="/" className="theater-nav__brand" aria-label={`${siteData.name} ホーム`}>
             <span className="theater-nav__mark">朱</span>
             <span className="theater-nav__name">
               <strong>{siteData.name}</strong>
-              <span>{siteData.romanizedName}</span>
+              <span>伝統芸能案内所</span>
             </span>
           </Link>
 
-          <nav className="theater-nav__desktop" aria-label="Primary navigation">
+          <nav className="theater-nav__desktop" aria-label="主要ナビゲーション">
             <div className="theater-nav__links">
               {navItems.map((link) => (
                 <Link
@@ -62,7 +62,7 @@ export const TheaterNavbar: React.FC = () => {
             </div>
             <Link to="/contact" className="theater-nav__ticket">
               <Ticket size={16} aria-hidden="true" />
-              Tickets
+              チケット
             </Link>
           </nav>
 
@@ -70,7 +70,7 @@ export const TheaterNavbar: React.FC = () => {
             type="button"
             className="theater-nav__toggle"
             onClick={() => setIsMobileMenuOpen((open) => !open)}
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={isMobileMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-navigation"
           >
@@ -80,7 +80,7 @@ export const TheaterNavbar: React.FC = () => {
       </header>
 
       <div id="mobile-navigation" className={clsx('theater-mobile-menu', isMobileMenuOpen && 'is-open')}>
-        <nav className="theater-mobile-menu__links" aria-label="Mobile navigation">
+        <nav className="theater-mobile-menu__links" aria-label="モバイルナビゲーション">
           {navItems.map((link) => (
             <Link
               key={link.href}
@@ -92,7 +92,7 @@ export const TheaterNavbar: React.FC = () => {
             </Link>
           ))}
           <Link to="/contact" className={clsx(isActive('/contact') && 'is-active')}>
-            <span>Tickets</span>
+            <span>チケット</span>
             <Ticket size={18} aria-hidden="true" />
           </Link>
         </nav>

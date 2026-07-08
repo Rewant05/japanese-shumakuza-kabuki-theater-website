@@ -13,7 +13,7 @@ export const About: React.FC = () => {
       <div className="container">
         <div className="mb-20 text-center max-w-3xl mx-auto">
           <span className="text-[var(--color-text-tertiary)] tracking-[0.3em] text-sm uppercase mb-6 block font-sans">
-            Our Story
+            私たちについて
           </span>
           <h1 className="title-large mb-8">私たちについて</h1>
           <p className="text-subtle font-serif tracking-[0.08em] text-lg">
@@ -23,7 +23,7 @@ export const About: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <div className="home-image-panel">
-            <img src={stageHero} alt="Vermilion traditional theater stage" />
+            <img src={stageHero} alt="朱色の幕がある伝統劇場の舞台" />
           </div>
 
           <div className="max-w-2xl">

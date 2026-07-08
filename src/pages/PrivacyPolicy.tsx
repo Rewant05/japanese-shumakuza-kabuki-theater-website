@@ -11,13 +11,13 @@ export const PrivacyPolicy: React.FC = () => {
         
         <div className="text-center mb-16">
           <span className="text-[var(--color-accent-red)] tracking-[0.2em] text-xs uppercase font-bold mb-6 block">
-            Legal
+            ご案内
           </span>
           <h1 className="title-large text-[var(--color-text-primary)] mb-8">
             プライバシーポリシー
           </h1>
           <p className="text-subtle text-sm">
-            最終更新日: {new Date().getFullYear()}.{String(new Date().getMonth() + 1).padStart(2, '0')}.01
+            最終更新日：{new Date().getFullYear()}年{new Date().getMonth() + 1}月1日
           </p>
         </div>
 
@@ -32,7 +32,7 @@ export const PrivacyPolicy: React.FC = () => {
               当サイトでは、お問い合わせフォーム等を通じてお名前、メールアドレス等の個人情報をご提供いただく場合がございますが、これらの情報はデモンストレーション目的でのみ使用され、実際のデータベース等への保存、第三者への提供は行われません。
             </p>
             
-            <h2 className="text-xl font-bold font-serif text-[var(--color-text-primary)] mt-12 mb-6">2. クッキー（Cookie）の使用について</h2>
+            <h2 className="text-xl font-bold font-serif text-[var(--color-text-primary)] mt-12 mb-6">2. クッキーの使用について</h2>
             <p className="mb-8">
               当サイトでは、ユーザーエクスペリエンスの向上のためにクッキーを使用する場合があります。クッキーはブラウザの設定により無効にすることが可能です。
             </p>

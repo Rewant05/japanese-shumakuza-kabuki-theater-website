@@ -7,7 +7,7 @@ export const TheaterExperience: React.FC = () => {
       <div className="container max-w-4xl relative z-10">
         <div className="text-center mb-24">
           <span className="text-[var(--color-accent-red)] tracking-[0.2em] text-xs uppercase font-bold mb-6 block">
-            Theater Experience
+            劇場体験
           </span>
           <h1 className="title-large text-[var(--color-text-primary)] mb-8">
             劇場の楽しみ方
@@ -45,17 +45,17 @@ export const TheaterExperience: React.FC = () => {
         <div className="mt-32 pt-24 border-t border-[rgba(0,0,0,0.05)]">
           <div className="text-center mb-16">
             <h2 className="text-2xl font-serif font-bold text-[var(--color-text-primary)] mb-4">よくあるご質問</h2>
-            <p className="text-subtle text-sm tracking-[0.1em] uppercase font-bold">Frequently Asked Questions</p>
+            <p className="text-subtle text-sm tracking-[0.1em] uppercase font-bold">よくある質問</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {siteData.faqs.map((faq) => (
               <div key={faq.question} className="glass-card p-8">
                 <h3 className="text-[var(--color-text-primary)] font-bold mb-4 font-serif">
-                  Q. {faq.question}
+                  質問：{faq.question}
                 </h3>
                 <p className="text-subtle text-sm leading-relaxed">
-                  A. {faq.answer}
+                  回答：{faq.answer}
                 </p>
               </div>
             ))}

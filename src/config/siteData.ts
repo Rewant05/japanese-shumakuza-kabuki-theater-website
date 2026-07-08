@@ -4,9 +4,9 @@ export const siteData = {
   tagline: '幕が上がるたび、日本の物語が息づく。',
   description: '朱幕座は、歌舞伎、舞踊、和楽器、古典演目の魅力を初めての方にもわかりやすく案内する、架空の伝統芸能ガイドサイトです。',
   theaterName: '朱幕座 伝統芸能案内所',
-  address: '東京都中央区日本橋人形町2-14-5 朱幕座ビル 2F',
+  address: '東京都中央区日本橋人形町2-14-5 朱幕座ビル 2階',
   email: 'hello@shumakuza.jp',
-  businessHours: '10:00〜18:00 / 月曜休み',
+  businessHours: '10:00〜18:00（月曜休み）',
   instagram: 'https://instagram.com/shumakuza.jp',
 
   disclaimer: '掲載している演目、劇場情報、開催情報、文化解説は架空または編集上の情報を含みます。実際の観劇や参加を検討する際は、各劇場・主催者・公式情報をご確認ください。',

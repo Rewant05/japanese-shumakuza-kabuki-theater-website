@@ -7,7 +7,7 @@ export const BeginnerGuide: React.FC = () => {
       <div className="container max-w-4xl">
         <div className="text-center mb-24">
           <span className="text-[var(--color-accent-red)] tracking-[0.2em] text-xs uppercase font-bold mb-6 block">
-            Beginner's Guide
+            初心者案内
           </span>
           <h1 className="title-large text-[var(--color-text-primary)] mb-8">
             はじめての歌舞伎
@@ -43,7 +43,7 @@ export const BeginnerGuide: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-[rgba(0,0,0,0.05)]">
                   <div>
                     <h3 className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold text-[var(--color-accent-red)] mb-3">
-                      Tips for Beginners
+                      初心者へのヒント
                     </h3>
                     <p className="text-[13px] text-subtle leading-relaxed">
                       {guide.beginnerTip}
@@ -52,7 +52,7 @@ export const BeginnerGuide: React.FC = () => {
 
                   <div>
                     <h3 className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold text-[var(--color-text-primary)] mb-3">
-                      Cultural Note
+                      文化メモ
                     </h3>
                     <p className="text-[13px] text-subtle leading-relaxed bg-[var(--color-bg-secondary)] p-3 rounded border-l-2 border-[var(--color-accent-red)]">
                       {guide.culturalNote}

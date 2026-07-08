@@ -7,13 +7,13 @@ export const Terms: React.FC = () => {
         
         <div className="text-center mb-16">
           <span className="text-[var(--color-accent-red)] tracking-[0.2em] text-xs uppercase font-bold mb-6 block">
-            Legal
+            ご案内
           </span>
           <h1 className="title-large text-[var(--color-text-primary)] mb-8">
             利用規約
           </h1>
           <p className="text-subtle text-sm">
-            最終更新日: 2024年1月1日
+            最終更新日：2024年1月1日
           </p>
         </div>
 
