@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right.mjs';
 import Info from 'lucide-react/dist/esm/icons/info.mjs';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin.mjs';
@@ -27,7 +29,7 @@ export const Home: React.FC = () => {
 
   const featuredPerformances = siteData.performances.slice(0, 3);
   const beginnerPreview = siteData.beginnerGuide.slice(0, 4);
-  const performanceImages = [stageHero, stageClimax, stageFarewell];
+  const performanceImages = [stageHero.src, stageClimax.src, stageFarewell.src];
 
   const climaxOpacity = range(sceneProgress, 0.44, 0.7) * (1 - range(sceneProgress, 0.82, 0.95));
   const farewellOpacity = range(sceneProgress, 0.78, 0.96);
@@ -131,9 +133,9 @@ export const Home: React.FC = () => {
             }}
           >
             <picture className="stage-picture">
-              <source srcSet={stageHeroMobile} media="(max-width: 640px)" type="image/webp" />
+              <source srcSet={stageHeroMobile.src} media="(max-width: 640px)" type="image/webp" />
               <img
-                src={stageHero}
+                src={stageHero.src}
                 alt=""
                 fetchPriority="high"
                 decoding="async"
@@ -147,7 +149,7 @@ export const Home: React.FC = () => {
             className="stage-image stage-image--climax"
             style={{
               backgroundImage: sceneProgress > 0.28
-                ? `image-set(url(${stageClimaxMobile}) 1x, url(${stageClimax}) 2x)`
+                ? `image-set(url(${stageClimaxMobile.src}) 1x, url(${stageClimax.src}) 2x)`
                 : 'none',
               opacity: climaxOpacity,
               transform: `scale(${1.08 - climaxOpacity * 0.04}) translateY(${(1 - climaxOpacity) * 22}px)`,
@@ -157,7 +159,7 @@ export const Home: React.FC = () => {
             className="stage-image stage-image--farewell"
             style={{
               backgroundImage: sceneProgress > 0.64
-                ? `image-set(url(${stageFarewellMobile}) 1x, url(${stageFarewell}) 2x)`
+                ? `image-set(url(${stageFarewellMobile.src}) 1x, url(${stageFarewell.src}) 2x)`
                 : 'none',
               opacity: farewellOpacity,
               transform: `scale(${1.06 - farewellOpacity * 0.04})`,
@@ -190,11 +192,11 @@ export const Home: React.FC = () => {
                 幕が開き、物語が高まり、舞台の熱が静かな余韻へ移ろうまで。劇場を歩くように、日本の伝統芸能の世界をご案内します。
               </p>
               <div className="stage-actions stage-copy-animate">
-                <Link to="/performances" className="stage-button">
+                <Link href="/performances" className="stage-button">
                   演目を見る
                   <ArrowRight size={17} aria-hidden="true" />
                 </Link>
-                <Link to="/beginner-guide" className="stage-button-secondary">
+                <Link href="/beginner-guide" className="stage-button-secondary">
                   はじめての歌舞伎
                   <ArrowRight size={17} aria-hidden="true" />
                 </Link>
@@ -214,8 +216,8 @@ export const Home: React.FC = () => {
         <div className="container home-grid">
           <div className="home-image-panel gsap-rise">
             <img
-              src={stageClimax}
-              srcSet={`${stageClimaxMobile} 540w, ${stageClimax} 900w`}
+              src={stageClimax.src}
+              srcSet={`${stageClimaxMobile.src} 540w, ${stageClimax.src} 900w`}
               sizes="(max-width: 768px) 92vw, 38vw"
               alt="舞台照明を受ける華やかな衣裳と扇"
               loading="lazy"
@@ -228,7 +230,7 @@ export const Home: React.FC = () => {
             <p className="text-subtle text-lg leading-loose mb-8">
               初めてでも入りやすい演目から、舞台全体が熱を帯びる名場面まで。衣裳、音、所作の見どころを短く案内します。
             </p>
-            <Link to="/performances" className="btn-primary">
+            <Link href="/performances" className="btn-primary">
               <span>演目をすべて見る</span>
             </Link>
           </div>
@@ -242,7 +244,7 @@ export const Home: React.FC = () => {
               <span className="home-section-label">演目案内</span>
               <h2 className="title-large">物語を選ぶ</h2>
             </div>
-            <Link to="/performances" className="group flex items-center gap-3 text-[var(--color-text-primary)] hover:text-[var(--color-accent-red)] transition-colors">
+            <Link href="/performances" className="group flex items-center gap-3 text-[var(--color-text-primary)] hover:text-[var(--color-accent-red)] transition-colors">
               <span className="uppercase tracking-[0.18em] text-sm font-bold link-underline">詳しく見る</span>
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
@@ -250,7 +252,7 @@ export const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredPerformances.map((perf, index) => (
-              <Link to="/performances" key={perf.id} className="glass-card performance-card group block p-0 gsap-rise">
+              <Link href="/performances" key={perf.id} className="glass-card performance-card group block p-0 gsap-rise">
                 <img
                   src={performanceImages[index % performanceImages.length]}
                   alt={`${perf.title}の舞台写真`}
@@ -284,10 +286,10 @@ export const Home: React.FC = () => {
               <Sparkles size={16} aria-hidden="true" />
               私たちの想い
             </span>
-            <h2 className="title-xl mb-10 text-[#fff8eb]">
+            <h2 className="title-xl mb-10 !text-[#fff8eb] drop-shadow-[0_3px_18px_rgba(255,248,235,0.28)]">
               知ることで、舞台はもっと面白くなる。
             </h2>
-            <p className="text-lg md:text-xl leading-loose font-serif text-[#f7e9ce]/80 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl leading-loose font-serif font-medium text-[#fff7ea] drop-shadow-[0_2px_12px_rgba(255,247,234,0.22)] max-w-3xl mx-auto">
               隈取の色、花道の使い方、三味線が描く心理。少しの知識を胸に劇場へ入るだけで、目の前の一瞬が物語として立ち上がります。
             </p>
           </div>
@@ -319,7 +321,7 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="text-center mt-16 gsap-rise">
-            <Link to="/beginner-guide" className="btn-primary">
+            <Link href="/beginner-guide" className="btn-primary">
               <span>案内を読む</span>
             </Link>
           </div>
@@ -347,8 +349,8 @@ export const Home: React.FC = () => {
           </div>
           <div className="home-image-panel gsap-rise">
             <img
-              src={stageFarewell}
-              srcSet={`${stageFarewellMobile} 720w, ${stageFarewell} 1440w`}
+              src={stageFarewell.src}
+              srcSet={`${stageFarewellMobile.src} 720w, ${stageFarewell.src} 1440w`}
               sizes="(max-width: 768px) 92vw, 42vw"
               alt="終演後のあたたかな劇場ロビー"
               loading="lazy"

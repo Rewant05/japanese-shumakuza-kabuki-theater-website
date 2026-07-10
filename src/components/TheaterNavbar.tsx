@@ -1,5 +1,8 @@
+'use client';
+
 import React, { useEffect, useMemo, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Menu from 'lucide-react/dist/esm/icons/menu.mjs';
 import Ticket from 'lucide-react/dist/esm/icons/ticket.mjs';
 import X from 'lucide-react/dist/esm/icons/x.mjs';
@@ -9,7 +12,7 @@ import { siteData } from '../config/siteData';
 export const TheaterNavbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname() ?? '/';
 
   const navItems = useMemo(
     () => [{ label: 'ホーム', href: '/' }, ...siteData.navigation],
@@ -25,7 +28,7 @@ export const TheaterNavbar: React.FC = () => {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', isMobileMenuOpen);
@@ -33,14 +36,14 @@ export const TheaterNavbar: React.FC = () => {
   }, [isMobileMenuOpen]);
 
   const isActive = (href: string) => (
-    href === '/' ? location.pathname === '/' : location.pathname.startsWith(href)
+    href === '/' ? pathname === '/' : pathname.startsWith(href)
   );
 
   return (
     <>
       <header className={clsx('theater-nav', (isScrolled || isMobileMenuOpen) && 'is-scrolled', isMobileMenuOpen && 'is-open')}>
         <div className="theater-nav__inner">
-          <Link to="/" className="theater-nav__brand" aria-label={`${siteData.name} ホーム`}>
+          <Link href="/" className="theater-nav__brand" aria-label={`${siteData.name} ホーム`}>
             <span className="theater-nav__mark">朱</span>
             <span className="theater-nav__name">
               <strong>{siteData.name}</strong>
@@ -53,14 +56,14 @@ export const TheaterNavbar: React.FC = () => {
               {navItems.map((link) => (
                 <Link
                   key={link.href}
-                  to={link.href}
+                  href={link.href}
                   className={clsx('theater-nav__link', isActive(link.href) && 'is-active')}
                 >
                   {link.label}
                 </Link>
               ))}
             </div>
-            <Link to="/contact" className="theater-nav__ticket">
+            <Link href="/contact" className="theater-nav__ticket">
               <Ticket size={16} aria-hidden="true" />
               チケット
             </Link>
@@ -84,14 +87,14 @@ export const TheaterNavbar: React.FC = () => {
           {navItems.map((link) => (
             <Link
               key={link.href}
-              to={link.href}
+              href={link.href}
               className={clsx(isActive(link.href) && 'is-active')}
             >
               <span>{link.label}</span>
               <span aria-hidden="true">→</span>
             </Link>
           ))}
-          <Link to="/contact" className={clsx(isActive('/contact') && 'is-active')}>
+          <Link href="/contact" className={clsx(isActive('/contact') && 'is-active')}>
             <span>チケット</span>
             <Ticket size={18} aria-hidden="true" />
           </Link>

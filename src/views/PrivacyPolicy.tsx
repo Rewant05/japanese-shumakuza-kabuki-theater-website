@@ -1,10 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 export const PrivacyPolicy: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="bg-[var(--color-bg-secondary)] min-h-screen pt-32 pb-24">
       <div className="container max-w-3xl">

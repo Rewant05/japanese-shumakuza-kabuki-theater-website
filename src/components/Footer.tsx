@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Camera, Mail, MapPin } from 'lucide-react';
 import { siteData } from '../config/siteData';
 
@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           <div className="md:col-span-5">
-            <Link to="/" className="inline-flex items-center gap-4 mb-6 group">
+            <Link href="/" className="inline-flex items-center gap-4 mb-6 group">
               <div className="w-10 h-10 flex items-center justify-center font-serif text-xl border-2 border-[var(--color-text-primary)] text-[var(--color-text-primary)] group-hover:bg-[var(--color-accent-red)] group-hover:text-white group-hover:border-[var(--color-accent-red)] transition-all duration-300">
                 朱
               </div>
@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-4">
               {siteData.footerLinks.slice(0, 4).map((link) => (
                 <li key={link.href}>
-                  <Link to={link.href} className="text-subtle text-sm hover:text-[var(--color-accent-red)] transition-colors">
+                  <Link href={link.href} className="text-subtle text-sm hover:text-[var(--color-accent-red)] transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -66,10 +66,10 @@ export const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} {siteData.name}. 無断転載を禁じます。
           </p>
           <div className="flex gap-6">
-            <Link to="/privacy-policy" className="text-[10px] text-[var(--color-text-tertiary)] uppercase tracking-[0.1em] hover:text-[var(--color-accent-red)] transition-colors">
+            <Link href="/privacy-policy" className="text-[10px] text-[var(--color-text-tertiary)] uppercase tracking-[0.1em] hover:text-[var(--color-accent-red)] transition-colors">
               プライバシーポリシー
             </Link>
-            <Link to="/terms" className="text-[10px] text-[var(--color-text-tertiary)] uppercase tracking-[0.1em] hover:text-[var(--color-accent-red)] transition-colors">
+            <Link href="/terms-and-conditions" className="text-[10px] text-[var(--color-text-tertiary)] uppercase tracking-[0.1em] hover:text-[var(--color-accent-red)] transition-colors">
               利用規約
             </Link>
           </div>

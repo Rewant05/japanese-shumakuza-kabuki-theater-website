@@ -26,7 +26,7 @@ export const siteData = {
     { label: '劇場の楽しみ方', href: '/theater-experience' },
     { label: 'お問い合わせ', href: '/contact' },
     { label: 'プライバシーポリシー', href: '/privacy-policy' },
-    { label: '利用規約', href: '/terms' },
+    { label: '利用規約', href: '/terms-and-conditions' },
   ],
 
   performances: [

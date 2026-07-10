@@ -1,13 +1,9 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import Link from 'next/link';
 import { siteData } from '../config/siteData';
 import stageHero from '../assets/stage-hero-1440.webp';
 
 export const About: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="pt-32 pb-16 min-h-screen bg-[var(--color-bg-primary)]">
       <div className="container">
@@ -23,7 +19,7 @@ export const About: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <div className="home-image-panel">
-            <img src={stageHero} alt="朱色の幕がある伝統劇場の舞台" />
+            <img src={stageHero.src} alt="朱色の幕がある伝統劇場の舞台" />
           </div>
 
           <div className="max-w-2xl">
@@ -49,7 +45,7 @@ export const About: React.FC = () => {
             </div>
 
             <div className="mt-12">
-              <Link to="/beginner-guide" className="btn-primary">
+              <Link href="/beginner-guide" className="btn-primary">
                 <span>はじめての歌舞伎へ</span>
               </Link>
             </div>

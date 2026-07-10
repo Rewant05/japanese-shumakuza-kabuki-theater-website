@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { siteData } from '../config/siteData';
 
@@ -109,10 +111,10 @@ export const KabukiCurtainHero: React.FC = () => {
           {siteData.description}
         </p>
         <div className="flex flex-col sm:flex-row gap-6 items-center">
-          <Link to="/performances" className="ticket-cta text-lg md:text-xl px-10 py-5">
+          <Link href="/performances" className="ticket-cta text-lg md:text-xl px-10 py-5">
             {siteData.name}の演目を見る
           </Link>
-          <Link to="/beginner-guide" className="px-8 py-4 font-serif text-lg text-washi-beige border-b-2 border-transparent hover:border-muted-gold hover:text-muted-gold transition-all duration-300 inline-flex items-center justify-center">
+          <Link href="/beginner-guide" className="px-8 py-4 font-serif text-lg text-washi-beige border-b-2 border-transparent hover:border-muted-gold hover:text-muted-gold transition-all duration-300 inline-flex items-center justify-center">
             はじめての歌舞伎へ
           </Link>
         </div>

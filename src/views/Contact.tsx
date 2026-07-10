@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+'use client';
+
+import React from 'react';
 import { Clock, Mail, MapPin } from 'lucide-react';
 import { siteData } from '../config/siteData';
 
 export const Contact: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="bg-[var(--color-bg-secondary)] min-h-screen pt-32 pb-24">
       <div className="container max-w-5xl">

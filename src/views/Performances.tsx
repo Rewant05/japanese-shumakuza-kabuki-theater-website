@@ -29,7 +29,7 @@ export const Performances: React.FC = () => {
             <div key={perf.id} className="glass-card flex flex-col h-full overflow-hidden p-0 group">
               <div className="relative h-64 overflow-hidden">
                 <img
-                  src={images[index % images.length]}
+                  src={images[index % images.length].src}
                   alt={`${perf.title}の舞台写真`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />

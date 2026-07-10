@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { siteData } from '../config/siteData';
 import stageHero from '../assets/stage-hero-1440.webp';
@@ -47,7 +49,7 @@ export const Hero: React.FC = () => {
         <div 
           className="absolute inset-0 transition-transform duration-[10s] hover:scale-105" 
           style={{ 
-            backgroundImage: `url(${stageHero})`,
+            backgroundImage: `url(${stageHero.src})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }} 
@@ -72,10 +74,10 @@ export const Hero: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 opacity-0">
-            <Link to="/performances" className="btn-primary">
+            <Link href="/performances" className="btn-primary">
               <span>演目を見る</span>
             </Link>
-            <Link to="/beginner-guide" className="btn-outline btn-primary bg-transparent text-[var(--color-text-primary)] hover:text-white border-[var(--color-text-primary)] before:bg-[var(--color-text-primary)]">
+            <Link href="/beginner-guide" className="btn-outline btn-primary bg-transparent text-[var(--color-text-primary)] hover:text-white border-[var(--color-text-primary)] before:bg-[var(--color-text-primary)]">
               <span>はじめての歌舞伎</span>
             </Link>
           </div>
